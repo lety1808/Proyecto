@@ -1,3 +1,5 @@
 body {
-    background: coral;
+    margin: 0px;
+    padding: 0px;
+    background: url(../img/cover_back.png);
 }
