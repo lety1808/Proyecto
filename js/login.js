@@ -2,16 +2,10 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-    function login(){
-        var usuario = document.getElementById("Usuario").value;
-        var contrasena = document.getElementById("Contraseña").value;
-        if(Usuario!="" && Contraseña!"="")
-        //document.form.submit();//
-        window.location="principal.html";
-        auxi = 1;
-    } else {
-        alert("Por favor ingrese nombre de usuario y contraseña correctos")
-    }
-document.addEventListener("DOMContentLoaded", function(e){
-
-});
+document.getElementById("submit").addEventListener('click', function(e) {
+    let email = document.getElementById("username");
+    let contraseña = document.getElementById("password");
+    let validacion = true;
+    if(username.value === "" ||password.value === "") {
+        alert("Debe completar el usuario Y la contraseña");
+        validacion = false; }
