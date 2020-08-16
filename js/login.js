@@ -9,3 +9,4 @@ document.getElementById("submit").addEventListener('click', function(e) {
     if(username.value === "" ||password.value === "") {
         alert("Debe completar el usuario Y la contraseña");
         validacion = false; }
+    }
