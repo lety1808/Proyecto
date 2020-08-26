@@ -13,46 +13,103 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <style>
+  <img src="img/cover_back.png" width="1250px">
+<style>
+
+    body {
+      background-color: gray
+    }
     html, body{
-      height: 100%;
+      height: 30%;
+    }
+    * {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      background-color: rgb(211, 211, 219);
+    }
+
+    h1 {
+  
+      color: fuchsia;
+      font-size: xx-large;
+      background-color: rgb(197, 153, 238)
+  
     }
 
     body {
+      
       display: -ms-flexbox;
       display: flex;
       -ms-flex-align: center;
       align-items: center;
       padding-top: 40px;
       padding-bottom: 40px;
-      background: rgb(236, 106, 176);
+      padding-left: 40px;
+      padding-right:40px;
+      background-color: rgb(197, 153, 238)
+    }
+
+    img {
+    border-radius: 15px;  
+    align-content: center;
+
+    }
+
+    button {
+      background-color: fuchsia;
+      color: white;
+      display: inline-block;
+      width: 303px;
+      font-size: x-large;
+      border-radius: 5px;
+      padding: 10px 20px 10px 20px;
+    }
+
+    button:hover{
+      background: white;
+      color: fuchsia;
+    }
+
+    a {
+      color: rgb(241, 48, 113);
+      font: small;
     }
 
     .login-box {
-      border-image-width: 50%;
-      width: 70%;
+      border: 7px solid rgb(233, 57, 124);
+      border-radius: 30px;
+      width: 50%;
       max-width: 1200px;
-      padding: 2px;
-      margin: auto;
-      background-color: rgb(236, 106, 176);
+      padding-top: 10px;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      margin-top: 700px;
+      margin-left: -1000px;
+      text-align: center;
+      background-color: rgb(197, 153, 238);
     }
   </style>
 </head>
 
 
   <body>
+    
   <div class="login-box">
-    <img src="img/login.png">
-    <h1>Iniciar sesión</h1>
+    <img src="img/login.png" width="300">
+    <p>
+    <p>
+    <h1><b>Iniciar sesión</b></h1>
     <div>
       <!--username-->
-     <br> <label for="username">Usuario</label>
-      <input id= "username" type="text" placeholder="Usuario">
+     <br> <label for="username"></label>
+       <input id= "username" type="text" placeholder="Ingrese usuario">
 
       <!--password-->
-     <br> <label for="password">Contraseña</label>
-      <input id= "password" type="password" placeholder="Contraseña">
-      <button id= "button">Ingresar></button>
+     <br> <label for="password"></label>
+      <input id= "password" type="password" placeholder="Ingrese contraseña">
+      <p>
+      <br><button id= "button">Ingresar</button>
+      <p>
 
      <br> <a href="#">Olvidé mi contraseña</a>
      <br> <a href="#">Quiero registrarme</a>
