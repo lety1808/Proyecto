@@ -2,6 +2,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 const ORDER_ASC_BY_PRICE = "PRECIO";
+const ORDER_DESC_BY_PRICE = "PRECIOD";
 const ORDER_BY_PROD_COUNT = "Vend.";
 var currentProductsArray = [];
 var currentSortCriteria = undefined;
@@ -17,6 +18,15 @@ function sortProducts(criteria, array){
             if ( a.cost > b.cost ){ return 1; }
             return 0;
         });
+
+    }else if (criteria === ORDER_DESC_BY_PRICE)
+    {
+        result = array.sort(function(a, b) {
+            if ( a.cost > b.cost ){ return -1; }
+            if ( a.cost < b.cost ){ return 1; }
+            return 0;
+        });
+
     }else if (criteria === ORDER_BY_PROD_COUNT){
         result = array.sort(function(a, b) {
             let aCount = parseInt(a.soldCount);
@@ -89,6 +99,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowProducts(ORDER_ASC_BY_PRICE);
+    });
+
+    document.getElementById("sortDesc").addEventListener("click", function(){
+        sortAndShowProducts(ORDER_DESC_BY_PRICE);
     });
 
     document.getElementById("sortByCount").addEventListener("click", function(){
