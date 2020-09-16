@@ -74,7 +74,7 @@
       font: small;
     }
 
-    .login-box {
+    .form {
       border: 7px solid rgb(233, 57, 124);
       border-radius: 30px;
       width: 50%;
@@ -94,7 +94,7 @@
 
   <body>
     
-  <div class="login-box">
+  <form class="form" id="form">
     <img src="img/login.png" width="300">
     <p>
     <p>
@@ -102,13 +102,13 @@
     <div>
       <!--username-->
      <br> <label for="username"></label>
-       <input id= "username" type="text" placeholder="Ingrese usuario">
+       <input id= "username" type="text" class= "form-control" placeholder="Ingrese usuario" required>
 
       <!--password-->
      <br> <label for="password"></label>
-      <input id= "password" type="password" placeholder="Ingrese contraseña">
+      <input id= "password" type="password" class= "form-control" placeholder="Ingrese contraseña" required>
       <p>
-      <br><button id= "button">Ingresar</button>
+      <br><button id= "button" type="submit" >Ingresar</button>
       <p>
 
      <br> <a href="#">Olvidé mi contraseña</a>
@@ -117,6 +117,7 @@
   </div>
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
+  <script src="js/nombre-usuario.js"></script>
 
 </body>
 

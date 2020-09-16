@@ -1,10 +1,10 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
 
-});
-var category = {};
+var product = {};
+
+//var relatedProduct = {};
 
 function showImagesGallery(array){
 
@@ -32,20 +32,68 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
-            category = resultObj.data;
+            product = resultObj.data;
 
-            let categoryNameHTML  = document.getElementById("categoryName");
-            let categoryDescriptionHTML = document.getElementById("categoryDescription");
-            let productCountHTML = document.getElementById("productCount");
-            let productCriteriaHTML = document.getElementById("productCriteria");
+            let productNameHTML  = document.getElementById("productName");
+            let productDescriptionHTML = document.getElementById("productDescription");
+            let productPriceHTML = document.getElementById("productPrice")
+            let productCountHTML = document.getElementById("productsoldCount");
+            let productCategoryHTML = document.getElementById("productCategory");
         
-            categoryNameHTML.innerHTML = category.name;
-            categoryDescriptionHTML.innerHTML = category.description;
-            productCountHTML.innerHTML = category.productCount;
-            productCriteriaHTML.innerHTML = category.productCriteria;
+            productNameHTML.innerHTML = product.name;
+            productDescriptionHTML.innerHTML = product.description;
+            productPriceHTML.innerHTML = product.currency + " " + product.cost;
+            productCountHTML.innerHTML = product.soldCount;
+            productCategoryHTML.innerHTML = product.category;
 
             //Muestro las imagenes en forma de galería
-            showImagesGallery(category.images);
+            showImagesGallery(product.images);
         }
     });
 });
+
+var comments= [];
+
+function guardar(){
+    var comment = {};
+    var usuario = document.getElementById("userComentario").value;
+    var descripcion = document.getElementById("descripcionComentario").value;
+    var puntuacion = document.getElementById("puntuacion").value;
+    
+    usuario = comment.user;
+    descripcion = comment.description;
+    puntuacion = comment.score;
+   
+
+    comments.push(comment);
+    mostrar(comments);
+}
+
+function mostrar(comments){
+    var commentlist= `<dl>`;
+
+    for(i=0; i<comments.length; i++){
+        let comment = comments[i];
+
+    commentlist+= `<dt>  ` + comment.user + `</dt>
+    <dd> ` + comment.description + `</dd>
+    <dd> Valoración: ` + comment.score + `.</dd> <hr>`
+    }
+
+    commentlist += `</dl>`;
+
+    document.getElementById("listaComentarios").innerHTML=commentlist;
+}
+
+//contamos con un conjunto de imagenes dentro del json
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//que el documento se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
+if (resultObj.status === "ok"){
+    comments = resultObj.data;
+    mostrar(comments);
+}
+    }) });
+

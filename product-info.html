@@ -13,6 +13,37 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+
+  <style>
+    .puntuacion {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    }
+
+    .puntuacion input {
+    position: absolute;
+    top: -100px;
+    }
+
+
+    .puntuacion label {
+    float: right;
+    color: #c1b8b8;
+    font-size: 30px; 
+    }
+
+    .puntuacion label:hover,
+    .puntuacion label:hover ~ label,
+    .puntuacion input:checked ~ label {
+    color: #e83e8c;
+    }
+    span{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 400;
+        color: blue;
+    }
+    </style>
 </head>
 
 <body>
@@ -25,14 +56,90 @@
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
     </div>
   </nav>
-  <div class="container p-5">
+
+  <main role="main">
+    <div class="container mt-5">
+      <div class="text-center p-4">
+        <h2>Descripción del producto</h2>
+        <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+        <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto
+          seleccionado previamente, siempre se visualizará el presente: <strong>Chevrolet Onix Joy</strong>.</p>
+      </div>
+      <h3 id="productName"></h3>
+      <hr class="my-3">
+      <dl>
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productDescription"></p>
+        </dd>
+
+        <dt>Precio:</dt>
+        <dd>
+          <p id="productPrice"></p>
+        </dd>
+
+        <dt>Cantidad de vendidos</dt>
+        <dd>
+          <p id= "productsoldCount"></p>
+        </dd>
+
+        <dt>Categoría</dt>
+        <dd>
+          <p id= "productCategory"></p>
+        </dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          </div>
+        </dd>
+      </dl>
+      <!--<a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos relacionados</a>-->
+    </div>
+  </main>
+<div>
+
+ <!--formulario comentarios-->
+  
+ <div class="container p-5">
+  <h3>Comentarios</h3>
+  <div class="container p-5" id="listaComentarios">
+
+  </div>
+  </dd>
+
+</div2>
+
+
+  <p><dt>Déjenos su comentario</dt></p>
+  Valoración: <span id="valor"></span>
+  <div class="puntuacion">
+    <input id="radio1" type="radio" name="estrellas" value="5" onclick="document.getElementById('valor').innerHTML='5'"><!--
+    --><label for="radio1">★</label><!--
+    --><input id="radio2" type="radio" name="estrellas" value="4" onclick="document.getElementById('valor').innerHTML='4'"><!--
+    --><label for="radio2">★</label><!--
+    --><input id="radio3" type="radio" name="estrellas" value="3" onclick="document.getElementById('valor').innerHTML='3'"><!--
+    --><label for="radio3">★</label><!--
+    --><input id="radio4" type="radio" name="estrellas" value="2" onclick="document.getElementById('valor').innerHTML='2'"><!--
+    --><label for="radio4">★</label><!--
+    --><input id="radio5" type="radio" name="estrellas" value="1" onclick="document.getElementById('valor').innerHTML='1'"><!--
+    --><label for="radio5">★</label><br>
+    
+  </div><br>
+  
+
+<br> <p> Usuario: <input type="text" name="Usuario" id="userComentario" size="25"></p>
+<br> <p> Comentario: <textarea name= "text" id="descripcionComentario" rows="3" cols="50"></textarea> </p>
+<br> <input type="submit" value="Enviar" onclick="guardar()"> 
+</div>
+  <!-- <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>
       <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
       <hr>
       <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
     </div>
-  </div>
+  </div> -->
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
