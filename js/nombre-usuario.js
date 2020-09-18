@@ -1,4 +1,4 @@
-var perfil = document.getElementById("nombre-usuario");
+var perfil = document.getElementById("username");
 var userName = localStorage.getItem('users');
-console.log(userName);
-perfil.innerHTML = "Bienvenido/a" + " " + userName[0].usuario;
+console.log(userName.usuario);
+perfil.innerHTML = "Bienvenido/a" + " " + JSON.stringify(userName[0].usuario);
