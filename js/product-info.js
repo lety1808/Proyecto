@@ -172,4 +172,3 @@ if (resultObj.status === "ok"){
     mostrar(comments);
 }
     }) });
-

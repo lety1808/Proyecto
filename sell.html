@@ -24,6 +24,13 @@
           font-size: 3.5rem;
         }
       }
+      
+    span{
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: 400;
+      color:  #e83e8c;
+  }
+  
     </style>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
@@ -37,12 +44,12 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="nombre-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><a>Bienvenido/a:</a></span><span id="username" >nombre</span>
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="username" ></span>
         </button>
         <div class="dropdown-menu" aria-labelledby="username">
           <a class="dropdown-item" href="cart.html">Mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <a class="dropdown-item" href="index.html">Cerrar sesión</a>
+          <a class="dropdown-item" onclick="localStorage.clear()"; href="index.html">Cerrar sesión</a>
         </div>
       </div>
     </nav>
@@ -225,5 +232,6 @@
       <script src="js/dropzone.js"></script>
       <script src="js/init.js"></script>
       <script src="js/sell.js"></script>
+      <script src="js/nombre-usuario.js"></script>
     </body>
 </html>
