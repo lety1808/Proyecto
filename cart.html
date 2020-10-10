@@ -58,14 +58,23 @@
     </div>
   </nav>
   
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+ <div class="container">
+    <div class="row">
+        <!-- Elementos generados a partir del JSON -->
+        <main id="articleName" class="col-sm-8 row"></main>
+        <!-- Carrito -->
+        <aside class="col-sm-4">
+            <h2>Carrito</h2>
+            <!-- Elementos del carrito -->
+            <ul id="carrito" class="list-group"></ul>
+            <hr>
+            <!-- Precio total -->
+            <p class="text-right">Total: <span id="total"></span>&dollar;</p>
+            <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+        </aside>
     </div>
-  </div>
+</div> -->
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
