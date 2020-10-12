@@ -27,33 +27,95 @@
         });
     });
 
+   
+
 //****************************************************************** */
+
+const dolar = 40
+const currency = "UYU"
+var totalFinal = 0
+var envioElegido = 0
+
+function cambioSubtotal(i){
+    let a = document.getElementById(i).value
+    let b = article[i];
+
+    b.count = parseInt(a);
+    mostrarCarrito(article);
+    sumatoriaTotal();
+}
+
+function change(num1, num2, num3){
+    if (num3 === currency){
+        num1 = num1/dolar
+    }
+    return num1 * num2
+}
+
+
+
+
+
+
+function sumatoriaTotal(){
+    totalFinal = totalFinal + totalFinal * envioElegido;
+    document.getElementById("finaltotal").innerHTML = totalFinal;
+
+}
+
+
+document.getElementById("goldradio").addEventListener("click", function(){
+    envioElegido = document.getElementById("goldradio").value;
+    sumatoriaTotal();
+})
+document.getElementById("premiumradio").addEventListener("click", function(){
+    envioElegido = document.getElementById("premiumradio").value;
+    sumatoriaTotal();
+})
+
+document.getElementById("standardradio").addEventListener("click", function(){
+    envioElegido = document.getElementById("standardradio").value;
+    sumatoriaTotal();
+})
+
+
+
 function mostrarCarrito(articulos){
 
     let htmlContentToAppend = "";
     for(let i = 0; i < articulos.length; i++){
         let product = articulos[i];
+        total = change(product.unitCost, product.count, product.currency)
+        totalFinal += total;
 
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + product.src + `"  class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ product.name +`</h4>
-                            
-                        </div>
-                       
-                        <br>
-                        <h4 class="mb-1">` + product.currency + ` ` + product.unitCost + `</h4>
-                        </div>
-                </div>
-            </a>
+       
+             
+            <tr class="thead-light">
+            <th> </th>
+            <th>Artículo</th>
+            <th>Costo</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            </tr>
+            <tr>
+            <td class= "align-middle align-center" scope="row"> <a href="product-info.html" class="list-group-item list-group-item-action"> <img weight= 100px src="` + product.src + `" alt= " " class="img-thumbnail"></a></td>
+            <td class= "align-middle align-center" style="font-size: larger;">` + product.name +`</td> 
+            <td class= "align-middle align-center" style="white-space: nowrap">` + product.currency + ` ` + product.unitCost + `</td>
+            <td class= "align-middle align-center td"><input style="input-cantidad;" type="number" name="cantidad" id="${i}" onchange="cambioSubtotal(${i})" value="` + product.count +`" min=0 style="width:5ch"></td>
+            <td class= "align-middle align-center" style="white-space:nowrap" id="calculo${i}">USD `+ total + ` </td>
+            </tr>
+            <div class="cart-totals-value" id="subtotal${i}"></div>
+            </div>
+
+                 
+                
+                        
+      
             `
         }
 
         document.getElementById("carrito").innerHTML = htmlContentToAppend;
+        document.getElementById("subtotal").innerHTML = totalFinal;
     
 }

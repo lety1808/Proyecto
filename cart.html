@@ -32,6 +32,10 @@
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       font-weight: 400;
       color:  #e83e8c;
+
+
+
+ 
   }
   
   </style>
@@ -58,23 +62,59 @@
     </div>
   </nav>
   
+<br>
+<h1>Mi carrito de compras</h1>
+ <br>
+  <div class="container align-middle align center">
+   <table id = "carrito" class = "table" style= "width:100%;">
+  
+  
+  </table>
+<br>
+          <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+ </div>
 
- <div class="container">
-    <div class="row">
-        <!-- Elementos generados a partir del JSON -->
-        <main id="articleName" class="col-sm-8 row"></main>
-        <!-- Carrito -->
-        <aside class="col-sm-4">
-            <h2>Carrito</h2>
-            <!-- Elementos del carrito -->
-            <ul id="carrito" class="list-group"></ul>
-            <hr>
-            <!-- Precio total -->
-            <p class="text-right">Total: <span id="total"></span>&dollar;</p>
-            <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
-        </aside>
-    </div>
-</div> -->
+  
+
+<br>
+        <div id="envio" class="container align-middle align-center"><h5 class="mb-3">Tipo de envío</h5>
+          <div class="d-block my-3">
+            <div class="custom-control custom-radio">
+              <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="" value="0.15">
+              <label class="custom-control-label" for="goldradio">Premium 2 a 5 dias (15%)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="" value="0.07">
+              <label class="custom-control-label" for="premiumradio">Express 5 a 8 dias (7%)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="" value="0.05">
+              <label class="custom-control-label" for="standardradio">Estándar 12 a 15 dias (5%)</label>
+            </div>
+
+            <div class="_column shipping">
+              <div class="cart-totals-key">Subtotal</div>
+              <div class="cart-totals-value" id="subtotal"></div>
+            </div>
+          
+          <div class="align-middle align-center">
+            <div class="_column shipping" id="costoenvio">
+              <div class="cart-totals-key">Costo de envio</div>
+              <div class="cart-totals-value"></div>
+            </div>
+          
+          <div class="align-middle align-center">
+                    <div class="_column total">
+              <div class="cart-totals-key">Total</div>
+              <div class="cart-totals-value"id ="finaltotal"></div>
+            </div>
+          
+          <div class="align-middle align-center">
+            <div class="_column checkout">
+              <button class="_btn checkout-btn entypo-forward">COMPRAR</button>
+            </div>
+          <div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
