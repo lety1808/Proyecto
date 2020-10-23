@@ -53,17 +53,15 @@ function change(num1, num2, num3){
 }
 
 
+function mostrarCarrito(articulos){
 
+    let htmlContentToAppend = "";
+    for(let i = 0; i < articulos.length; i++){
+        let product = articulos[i];
+        total = change(product.unitCost, product.count, product.currency)
+        totalFinal += total;
 
-
-
-function sumatoriaTotal(){
-    totalFinal = totalFinal + totalFinal * envioElegido;
-    document.getElementById("finaltotal").innerHTML = totalFinal;
-
-}
-
-
+        
 document.getElementById("goldradio").addEventListener("click", function(){
     envioElegido = document.getElementById("goldradio").value;
     sumatoriaTotal();
@@ -79,14 +77,11 @@ document.getElementById("standardradio").addEventListener("click", function(){
 })
 
 
+function sumatoriaTotal(){
+    totalFinal = totalFinal + totalFinal * envioElegido;
+    document.getElementById("finaltotal").innerHTML = totalFinal;
 
-function mostrarCarrito(articulos){
-
-    let htmlContentToAppend = "";
-    for(let i = 0; i < articulos.length; i++){
-        let product = articulos[i];
-        total = change(product.unitCost, product.count, product.currency)
-        totalFinal += total;
+}
 
             htmlContentToAppend += `
        
@@ -94,16 +89,17 @@ function mostrarCarrito(articulos){
             <tr class="thead-light">
             <th> </th>
             <th>Artículo</th>
-            <th>Costo</th>
+            <th>Precio</th>
             <th>Cantidad</th>
             <th>Subtotal</th>
             </tr>
             <tr>
-            <td class= "align-middle align-center" scope="row"> <a href="product-info.html" class="list-group-item list-group-item-action"> <img weight= 100px src="` + product.src + `" alt= " " class="img-thumbnail"></a></td>
-            <td class= "align-middle align-center" style="font-size: larger;">` + product.name +`</td> 
-            <td class= "align-middle align-center" style="white-space: nowrap">` + product.currency + ` ` + product.unitCost + `</td>
-            <td class= "align-middle align-center td"><input style="input-cantidad;" type="number" name="cantidad" id="${i}" onchange="cambioSubtotal(${i})" value="` + product.count +`" min=0 style="width:5ch"></td>
-            <td class= "align-middle align-center" style="white-space:nowrap" id="calculo${i}">USD `+ total + ` </td>
+            <td class= "align-left" scope="row"> <a href="product-info.html"> <img width=160px img height=160px src="` + product.src + `" alt= " " class="img-thumbnail"></a></td>
+            <td class= "align-left" style="font-size: larger;">` + product.name +`</td> 
+            <td class= "align-left" style="white-space: nowrap">` + product.currency + ` ` + product.unitCost + `</td>
+            <td class= "align-left td"><input style="input-cantidad;" type="number" name="cantidad" id="${i}" onchange="cambioSubtotal(${i})" value="` + product.count +`" min=0 style="width:5ch"></td>
+            <td class= "align-left" style="white-space:nowrap" id="calculo${i}">USD `+ total + ` </td>
+            <td class= "align-left"> <button id="boton-vaciar" class="btn btn-danger">Vaciar</button> </td>
             </tr>
             <div class="cart-totals-value" id="subtotal${i}"></div>
             </div>

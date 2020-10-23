@@ -13,6 +13,24 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
   <style>
+
+#boton-comprar {
+
+width: 200px;
+font-size: large;
+border-radius: 5px;
+
+}
+
+#carrito {
+  background-color: #e6d9df;
+  border: #e83e8c 5px solid;
+  border-collapse: separate;
+  margin: 10px;
+  padding: 10px;
+  
+}
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -33,11 +51,14 @@
       font-weight: 400;
       color:  #e83e8c;
 
+      
 
+      
+      
+     
+     }
+_
 
- 
-  }
-  
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -63,20 +84,17 @@
   </nav>
   
 <br>
-<h1>Mi carrito de compras</h1>
+<h1 align= "center">Mi carrito de compras</h1>
  <br>
-  <div class="container align-middle align center">
-   <table id = "carrito" class = "table" style= "width:100%;">
-  
-  
+  <div class="container align-left">
+  <table id = "carrito" class = "table-light" style= "width:70%;">
   </table>
-<br>
-          <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+
+          
  </div>
 
-  
+ 
 
-<br>
         <div id="envio" class="container align-middle align-center"><h5 class="mb-3">Tipo de envío</h5>
           <div class="d-block my-3">
             <div class="custom-control custom-radio">
@@ -92,26 +110,45 @@
               <label class="custom-control-label" for="standardradio">Estándar 12 a 15 dias (5%)</label>
             </div>
 
-            <div class="_column shipping">
-              <div class="cart-totals-key">Subtotal</div>
-              <div class="cart-totals-value" id="subtotal"></div>
+            
+
+            
+          <table>
+          <tr>
+            <td><div class="column shipping">
+              <div class="cart-totals-key">Subtotal: USD </div></td>
+             <td> <div class="cart-totals-value" id="subtotal"></div>
             </div>
-          
-          <div class="align-middle align-center">
-            <div class="_column shipping" id="costoenvio">
-              <div class="cart-totals-key">Costo de envio</div>
-              <div class="cart-totals-value"></div>
+          </td>
+          </tr>
+          <tr>
+          <td>
+           <div class="align-middle align-center">
+            <div class="column shipping">
+            <div class="cart-totals-key">Costo de envio: USD </div>
+            </td>
+            <td>
+              <div class="cart-totals-value" id="costoenvio"></div>
             </div>
-          
+          </td>
+          <tr>
+          <td>
           <div class="align-middle align-center">
                     <div class="_column total">
-              <div class="cart-totals-key">Total</div>
+              <div class="cart-totals-key">Total: USD </div>
+            </td>
+            <td>
               <div class="cart-totals-value"id ="finaltotal"></div>
             </div>
+          </td>
+
+          </tr>
+
+          </table>
           
           <div class="align-middle align-center">
-            <div class="_column checkout">
-              <button class="_btn checkout-btn entypo-forward">COMPRAR</button>
+            <div class="column checkout">
+              <button id="boton-comprar" class="_btn btn-success">Comprar</button> 
             </div>
           <div>
 
