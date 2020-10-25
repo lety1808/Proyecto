@@ -31,6 +31,18 @@ border-radius: 5px;
   
 }
 
+#tablacosto {
+  border: 1px solid;
+  margin: 5px;
+  padding: 5px;
+}
+
+#bordestabla {
+  border: 1px solid;
+  margin: 5px;
+  padding: 5px;
+}
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -84,7 +96,7 @@ _
   </nav>
   
 <br>
-<h1 align= "center">Mi carrito de compras</h1>
+<h1 align= "center">Mi carrito de compras <img src="img/carrito.jpg" height= 70px></h1> 
  <br>
   <div class="container align-left">
   <table id = "carrito" class = "table-light" style= "width:70%;">
@@ -110,47 +122,181 @@ _
               <label class="custom-control-label" for="standardradio">Estándar 12 a 15 dias (5%)</label>
             </div>
 
-            
+            <br>
 
-            
-          <table>
-          <tr>
-            <td><div class="column shipping">
-              <div class="cart-totals-key">Subtotal: USD </div></td>
-             <td> <div class="cart-totals-value" id="subtotal"></div>
-            </div>
-          </td>
-          </tr>
-          <tr>
-          <td>
-           <div class="align-middle align-center">
-            <div class="column shipping">
-            <div class="cart-totals-key">Costo de envio: USD </div>
-            </td>
-            <td>
-              <div class="cart-totals-value" id="costoenvio"></div>
-            </div>
-          </td>
-          <tr>
-          <td>
-          <div class="align-middle align-center">
-                    <div class="_column total">
-              <div class="cart-totals-key">Total: USD </div>
-            </td>
-            <td>
-              <div class="cart-totals-value"id ="finaltotal"></div>
-            </div>
-          </td>
 
-          </tr>
 
-          </table>
+
+            <table class="egt" id="tablacosto">
+
+<tr id="bordestabla">
+
+  <td id="bordestabla">Subtotal:</td>
+
+  <td id="bordestabla"><div class="cart-totals-value" id="subtotal"></td>
+
+</tr>
+
+<tr id="bordestabla">
+
+  <td id="bordestabla">Costo de envío:</td>
+
+  <td id="bordestabla"><div class="cart-totals-value" id="costoenvio"></td>
+
+</tr>
+
+<tr id="bordestabla">
+
+  <td id="bordestabla"><b>Total:</b></td>
+
+  <td id="bordestabla"><div class="cart-totals-value" id ="finaltotal"></div></td>
+
+</tr>
+
+</table>
+
+
+
+<br>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
+  Confirmar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ingresarDatos">Ingresar datos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      
+
+<div class="infoEnvio">
+    <div class="heading">
+
+        <h5 id="infoEnvio" name="infoEnvio">Ingresar datos de envío</h5>
+    </div>
+    <div class="envios">
+        <form>
+            <div class="form-group-envio name">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group-envio dir">
+                <label for="dir">Dirección</label>
+                <input type="text" class="form-control" id="dir">
+            </div> <div class="form-group-envio loc">
+                <label for="loc">Localidad</label>
+                <input type="text" class="form-control" id="loc">
+            </div>
+
+
+            <div class="form-group-envio" id="departamento">
+                <label>Departamento</label>
+                <select>
+                    <option value="01">Montevideo</option>
+                    <option value="02">Salto</option>
+                    <option value="03">Rocha</option>
+                    <option value="04">Rivera</option>
+                    <option value="05">Artigas</option>
+                    <option value="06">Soriano</option>
+                    <option value="07">Flores</option>
+                    <option value="08">Florida</option>
+                    <option value="09">Lavalleja</option>
+                    <option value="10">Rio Negro</option>
+                    <option value="11">Durazno</option>
+                    <option value="12">San Jose</option>
+                    <option value="13">Colonia</option>
+                    <option value="14">Canelones</option>
+                    <option value="15">Maldonado</option>
+                    <option value="16">Tacuarembo></option>
+                    <option value="17">Cerro Largo</option>
+                    <option value="18">Paysandu</option>
+                    <option value="19">Treinta y Tres</option>
+                </select>
+
+
+            <div class="form-group-envio tel>
+                <label for="tel">Teléfono</label>
+                <input type="text" class="form-control" id="cardNumber">
+            </div>
+
+</div>
+<br>
+
+
+ <div class="creditCardForm">
+    <div class="heading">
+
+        <h5 id="opcionTarjeta" name="modoPago">Ingresar datos de tarjeta de crédito</h4>
+    </div>
+    <div class="payment">
+        <form>
+            <div class="form-group name">
+                <label for="owner">Nombre</label>
+                <input type="text" class="form-control" id="owner">
+            </div>
+            <div class="form-group CVV">
+                <label for="cvv">CVV</label>
+                <input type="text" class="form-control" id="cvv">
+            </div>
+            <div class="form-group" id="card-number-field">
+                <label for="cardNumber">Número de tarjeta</label>
+                <input type="text" class="form-control" id="cardNumber">
+            </div>
+            <div class="form-group" id="expiration-date">
+                <label>Vencimiento</label>
+                <select>
+                    <option value="01">Enero</option>
+                    <option value="02">Febrero</option>
+                    <option value="03">Marzo</option>
+                    <option value="04">Abril</option>
+                    <option value="05">Mayo</option>
+                    <option value="06">Junio</option>
+                    <option value="07">Julio</option>
+                    <option value="08">Agosto</option>
+                    <option value="09">Setiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+                <select>
+                    <option value="20"> 2020</option>
+                    <option value="21"> 2021</option>
+                    <option value="22"> 2022</option>
+                    <option value="23"> 2023</option>
+                    <option value="24"> 2024</option>
+                    <option value="25"> 2025</option>
+                </select>
+            </div>
+            <div class="form-group" id="credit_cards">
+                <img src="img/visa.jpg" height= 40px>
+                <img src="img/mastercard.jpg" height= 40px>
+                <img src="img/amex.jpg" height= 40px>
+            </div>
+           
+        </form>
+    </div>
+</div>
+      </div>
+
+       
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Finalizar compra</button>
+      </div>
+    </div>
+  </div>
+</div>
           
-          <div class="align-middle align-center">
-            <div class="column checkout">
-              <button id="boton-comprar" class="_btn btn-success">Comprar</button> 
-            </div>
-          <div>
+
+         
 
   <div id="spinner-wrapper">
     <div class="lds-ring">
