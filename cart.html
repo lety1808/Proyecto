@@ -11,6 +11,8 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
 
   <style>
 
@@ -25,6 +27,7 @@ border-radius: 5px;
 #carrito {
   background-color: #e6d9df;
   border: #e83e8c 5px solid;
+  border-radius: 15px;
   border-collapse: separate;
   margin: 10px;
   padding: 10px;
@@ -32,16 +35,37 @@ border-radius: 5px;
 }
 
 #tablacosto {
-  border: 1px solid;
+  border: #e83e8c 5px solid;
+  border-radius: 15px;
   margin: 5px;
   padding: 5px;
 }
 
 #bordestabla {
   border: 1px solid;
+  
   margin: 5px;
   padding: 5px;
 }
+
+#bordestablatotal {
+  border: 1px solid;
+  margin: 5px;
+  padding: 5px;
+  background-color: #e6d9df;
+}
+
+  .validacion{
+            font-size: small;
+            padding-top: 0%;
+            margin-top: 0%;
+        }
+        .invalido{
+            color: red;
+        }
+        .valido{
+            color: green;
+        }
 
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -62,8 +86,6 @@ border-radius: 5px;
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       font-weight: 400;
       color:  #e83e8c;
-
-      
 
       
       
@@ -99,26 +121,32 @@ _
 <h1 align= "center">Mi carrito de compras <img src="img/carrito.jpg" height= 70px></h1> 
  <br>
   <div class="container align-left">
-  <table id = "carrito" class = "table-light" style= "width:70%;">
-  </table>
+  <table id="carrito" class = "table-light" style= "width:65%;">
+    <tr class="thead-light">
+        <th> </th>
+        <th>Artículo</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Subtotal</th>
+        </tr>
+  <tbody id="carrito">
+  </tbody>
+  </table><br>
 
           
  </div>
-
- 
-
         <div id="envio" class="container align-middle align-center"><h5 class="mb-3">Tipo de envío</h5>
           <div class="d-block my-3">
             <div class="custom-control custom-radio">
-              <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="" value="0.15">
+              <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="" value="0.15" onclick="totales();">
               <label class="custom-control-label" for="goldradio">Premium 2 a 5 dias (15%)</label>
             </div>
             <div class="custom-control custom-radio">
-              <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="" value="0.07">
+              <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="" value="0.07" onclick="totales();">
               <label class="custom-control-label" for="premiumradio">Express 5 a 8 dias (7%)</label>
             </div>
             <div class="custom-control custom-radio">
-              <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="" value="0.05">
+              <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="" value="0.05" onclick="totales();">
               <label class="custom-control-label" for="standardradio">Estándar 12 a 15 dias (5%)</label>
             </div>
 
@@ -127,13 +155,13 @@ _
 
 
 
-            <table class="egt" id="tablacosto">
+ <table class="egt" id="tablacosto">
 
 <tr id="bordestabla">
 
   <td id="bordestabla">Subtotal:</td>
 
-  <td id="bordestabla"><div class="cart-totals-value" id="subtotal"></td>
+  <td id="subTotal"></td>
 
 </tr>
 
@@ -141,15 +169,15 @@ _
 
   <td id="bordestabla">Costo de envío:</td>
 
-  <td id="bordestabla"><div class="cart-totals-value" id="costoenvio"></td>
+  <td id="bordestabla"><span class="cart-totals-value" id="costoEnvio"></span></td>
 
 </tr>
 
 <tr id="bordestabla">
 
-  <td id="bordestabla"><b>Total:</b></td>
+  <td id="bordestablatotal"><b>Total:</b></td>
 
-  <td id="bordestabla"><div class="cart-totals-value" id ="finaltotal"></div></td>
+  <td id="bordestablatotal"><span class="cart-totals-value" id ="finalTotal"></span></td>
 
 </tr>
 
@@ -161,7 +189,7 @@ _
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
-  Confirmar
+  Continuar
 </button>
 
 <!-- Modal -->
@@ -184,22 +212,27 @@ _
     </div>
     <div class="envios">
         <form>
-            <div class="form-group-envio name">
+            <div class="needs-validation">
                 <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="name">
+                <input type="text" class="form-control" name= nombre id="nombre-input">
+                <span class="validacion" id="nombre"></span>
             </div>
-            <div class="form-group-envio dir">
-                <label for="dir">Dirección</label>
-                <input type="text" class="form-control" id="dir">
-            </div> <div class="form-group-envio loc">
-                <label for="loc">Localidad</label>
-                <input type="text" class="form-control" id="loc">
+            <div class="needs-validation">
+                <label for="direccion">Dirección</label>
+                <input type="text" class="form-control" name= dir id="direccion-input">
+                <span class="validacion" id="direccion"></span>
+            </div> 
+            <div class="needs-validation">
+                <label for="localidad">Localidad</label>
+                <input type="text" class="form-control" id="localidad-input">
+                <span class="validacion" id="localidad"></span>
             </div>
 
 
-            <div class="form-group-envio" id="departamento">
-                <label>Departamento</label>
-                <select>
+            <div class="needs-validation">
+                <label for="departamento">Departamento</label>
+                <select class="form-control" name= departamento id="departamento-input">
+                    <option></option>
                     <option value="01">Montevideo</option>
                     <option value="02">Salto</option>
                     <option value="03">Rocha</option>
@@ -220,39 +253,42 @@ _
                     <option value="18">Paysandu</option>
                     <option value="19">Treinta y Tres</option>
                 </select>
-
-
-            <div class="form-group-envio tel>
-                <label for="tel">Teléfono</label>
-                <input type="text" class="form-control" id="cardNumber">
+                <span class="validacion" id="departamento"></span>
             </div>
 
-</div>
-<br>
+            <div class="needs-validation">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" class="form-control" name= telefono id="telefono-input">
+                <span class="validacion" id="telefono"></span>
+            </div>
+            </div>
+            <br>
 
-
- <div class="creditCardForm">
+ <div class="modoPago">
     <div class="heading">
-
-        <h5 id="opcionTarjeta" name="modoPago">Ingresar datos de tarjeta de crédito</h4>
+    <h5 id="tarjetaCredito" name="tarjetaCredito">Ingresar datos de tarjeta de crédito</h5>
     </div>
-    <div class="payment">
+    <div class="pago">
         <form>
-            <div class="form-group name">
-                <label for="owner">Nombre</label>
-                <input type="text" class="form-control" id="owner">
+          <div class="needs-validation">
+                <label for="usuario">Nombre</label>
+                <input type="text" class="form-control" name= usuario id="usuario-input">
+                <span class="validacion" id="usuario"></span>
             </div>
-            <div class="form-group CVV">
+            <div class="needs-validation>
                 <label for="cvv">CVV</label>
-                <input type="text" class="form-control" id="cvv">
+                <input type="number" class="form-control" name="cvv" id="cvv-input">
+                <span class="validacion" id="cvv"></span>
             </div>
-            <div class="form-group" id="card-number-field">
-                <label for="cardNumber">Número de tarjeta</label>
-                <input type="text" class="form-control" id="cardNumber">
+            <div class="needs-validation">
+                <label for="numero">Número de tarjeta</label>
+                <input type="number" class="form-control" name="numero" id="numero-input">
+                <span class="validacion" id="numero"></span>
             </div>
-            <div class="form-group" id="expiration-date">
-                <label>Vencimiento</label>
-                <select>
+            <div class="needs-validation">
+                <label for="vencimiento">Vencimiento</label>
+                <select class="form-control" name="vencimiento" id="vencimiento-input">
+                    <option> </option>
                     <option value="01">Enero</option>
                     <option value="02">Febrero</option>
                     <option value="03">Marzo</option>
@@ -266,7 +302,9 @@ _
                     <option value="11">Noviembre</option>
                     <option value="12">Diciembre</option>
                 </select>
-                <select>
+                <span class="validacion" id="vencimiento"></span>
+                <select class="form-control" name="año" id="año-input">
+                    <option> </option>
                     <option value="20"> 2020</option>
                     <option value="21"> 2021</option>
                     <option value="22"> 2022</option>
@@ -274,6 +312,7 @@ _
                     <option value="24"> 2024</option>
                     <option value="25"> 2025</option>
                 </select>
+                <span class="validacion" id="año"></span>
             </div>
             <div class="form-group" id="credit_cards">
                 <img src="img/visa.jpg" height= 40px>
@@ -289,7 +328,7 @@ _
        
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Finalizar compra</button>
+        <button class="btn btn-success my-3" onclick="checkForm()">Finalizar compra</button>
       </div>
     </div>
   </div>
@@ -312,6 +351,8 @@ _
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/nombre-usuario.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 
 </html>
