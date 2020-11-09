@@ -41,7 +41,7 @@
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="principal.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
@@ -55,14 +55,66 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+
+  <br>
+<div class="container">
+<div class="row">
+<div class="col-sm-6">
+<h2>Mi perfil</h2>
+</div>
+</div>
+<div class="row">
+<div class="col text-center">
+  <form id="perfil" method="post" enctype="multipart/form-data" >
+    
+    <input type = "file" accept = "image / *" name = "imagen" id = "file" onchange = "loadFile (event)" style = "display: none;">
+    <p> <label for = "file" style = "cursor: pointer;"> Subir imagen </label> </p>
+    <img id = "salida" width = "200" />
   </div>
+</div>
+  
+    <br>
+    <div class="row">
+      <div class="col-sm-6">
+    <label>Nombre</label>
+    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese nombre" required>
+  </div>
+  <div class="col-sm-6">
+    <label>Apellido</label>
+    <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Ingrese apellido" required>
+  </div>
+  </div>
+<div class="row">
+  <div class="col-sm-6">
+    <label>Fecha de nacimiento</label>
+    <input type="date" name="fechaNac" id="fechaNac" class="form-control" placeholder="Ingrese fecha de nacimiento" required>
+  </div>
+  <div class="col-sm-6">
+    <label>Email</label>
+    <input type="email" class="form-control" id="email" placeholder="Ingrese email" required>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+    <label>Teléfono</label>
+    <input type="telefono" class="form-control" id="telefono" placeholder="Ingrese teléfono" required>
+  </div>
+  <div class="col-sm-6">
+    <label>Contraseña</label>
+    <input type="password" class="form-control" id="contraseña" placeholder="Ingrese contraseña" required>
+  </div>
+  </div>
+    </div>
+    <br>
+<div class="row">
+  <div class="col text-center">
+    
+    <button type="submit" class="btn btn-success" onclick="guardarDatos()">Guardar</button>
+  </div>
+</div>
+  </form>
+
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
